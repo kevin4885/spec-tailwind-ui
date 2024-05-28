@@ -1,7 +1,7 @@
 {
   "name": "spec-tailwind-ui",
   "description": "React UI components based on TailwindCss (opinionated)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": ["tailwindcss", "react"],
   "repository": {
     "type": "git",
