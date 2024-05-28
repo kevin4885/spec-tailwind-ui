@@ -1,0 +1,49 @@
+{
+  "name": "spec-tailwind-ui",
+  "description": "React UI components based on TailwindCss (opinionated)",
+  "version": "1.0.0",
+  "keywords": ["tailwindcss", "react"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevin4885/spec-tailwind-ui"
+  },
+  "main": "dist/spec-tailwind-ui.umd.js",
+  "author": "kevin4885",
+  "license": "MIT",
+  "module": "dist/spec-tailwind-ui.es.js",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@floating-ui/react": "^0.26.16",
+    "libphonenumber-js": "^1.11.2",
+    "react-icomoon": "^2.5.7",
+    "react-responsive": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.0"
+  }
+}

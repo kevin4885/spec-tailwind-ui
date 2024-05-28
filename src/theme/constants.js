@@ -1,0 +1,36 @@
+
+export const COLOR_TYPE = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    TERTIARY: 'tertiary',
+    DANGER: 'danger',
+    WARN: 'warn',
+    SUCCESS: 'success',
+    BG: 'gray',
+};
+
+export const COLOR = {
+    COFFEE: 'coffee',
+    NEUTRAL: 'neutral',
+    STONE: 'stone',
+    ZINC: 'zinc',
+    SLATE: 'slate',
+    METAL: 'moss',
+    RED: 'red',
+    ORANGE: 'orange',
+    AMBER: 'amber',
+    YELLOW: 'yellow',
+    LIME: 'lime',
+    GREEN: 'green',
+    EMERALD: 'emerald',
+    TEAL: 'teal',
+    CYAN: 'cyan',
+    SKY: 'sky',
+    BLUE: 'blue',
+    INDIGO: 'indigo',
+    VIOLET: 'violet',
+    PURPLE: 'purple',
+    FUCHSIA: 'fuchsia',
+    PINK: 'pink',
+    ROSE: 'rose',
+};
