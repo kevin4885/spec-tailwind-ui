@@ -1,8 +1,11 @@
 {
   "name": "spec-tailwind-ui",
   "description": "React UI components based on TailwindCss (opinionated)",
-  "version": "1.0.1",
-  "keywords": ["tailwindcss", "react"],
+  "version": "1.0.3",
+  "keywords": [
+    "tailwindcss",
+    "react"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kevin4885/spec-tailwind-ui"
@@ -29,9 +32,11 @@
     "@dnd-kit/core": "^6.1.0",
     "@dnd-kit/sortable": "^8.0.0",
     "@floating-ui/react": "^0.26.16",
+    "jotai-zustand": "^0.4.0",
     "libphonenumber-js": "^1.11.2",
     "react-icomoon": "^2.5.7",
-    "react-responsive": "^10.0.0"
+    "react-responsive": "^10.0.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
