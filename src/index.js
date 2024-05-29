@@ -2,7 +2,6 @@ export * from './components';
 
 export {
     defaultTheme,
-    isDark,
     getThemeFromStorage,
     setThemeInStorage,
     getTheme,
@@ -29,3 +28,5 @@ export {
     hslToRgb,
     rgbToHsl
 } from './theme/colorUtils.js';
+
+export * from './stores/themeStore.js';

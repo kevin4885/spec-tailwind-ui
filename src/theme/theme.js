@@ -1,6 +1,6 @@
-import { isHslContrastBlack } from "./colorUtils";
-import colors from "./colors";
-import {COLOR, COLOR_TYPE} from "./constants.js";
+import { isHslContrastBlack } from './colorUtils';
+import colors from './colors';
+import { COLOR, COLOR_TYPE } from './constants.js';
 
 //https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
 
@@ -21,8 +21,6 @@ export const setThemeType = (type, color) => {
 };
 
 export const defaultTheme = { primary: COLOR.BLUE, secondary: COLOR.BLUE, tertiary: COLOR.GREEN, danger: COLOR.RED, warn: COLOR.AMBER, success: COLOR.GREEN, bg: COLOR.NEUTRAL };
-
-export const isDark = () => document.documentElement.classList.contains('dark');
 
 export function getThemeFromStorage() {
   const colorsString = localStorage.getItem(STORAGE_KEY);

@@ -27,6 +27,12 @@ export { default as Avatar } from './Avatar.jsx';
 export { default as PageSpinner } from './PageSpinner.jsx';
 export { default as Spinner } from './Spinner.jsx';
 export { useTooltip, ToolTip, TooltipTrigger, TooltipContent } from './ToolTip.jsx';
+export { default as ThemeProvider } from './ThemeProvider.jsx';
+export { default as AlertModal } from './modals/AlertModal.jsx';
+export { default as BaseModal } from './modals/BaseModal.jsx';
+export { default as ConfirmModal } from './modals/ConfirmModal.jsx';
+export { default as DeleteModal } from './modals/DeleteModal.jsx';
+
 
 
 
