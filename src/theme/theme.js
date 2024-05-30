@@ -23,14 +23,16 @@ export const setThemeType = (type, color) => {
 export const defaultTheme = { primary: COLOR.BLUE, secondary: COLOR.BLUE, tertiary: COLOR.GREEN, danger: COLOR.RED, warn: COLOR.AMBER, success: COLOR.GREEN, bg: COLOR.NEUTRAL };
 
 export function getThemeFromStorage() {
+  if (typeof(localStorage) === "undefined")  return;
   const colorsString = localStorage.getItem(STORAGE_KEY);
   if (!colorsString) return;
-  const colors = JSON.parse(colorsString);
-  return colors;
+  return JSON.parse(colorsString);
 }
 
 export function setThemeInStorage(theme) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(theme));
+  if (typeof(localStorage) !== "undefined") {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(theme));
+  }
 }
 
 export const getTheme = theme => theme || getThemeFromStorage() || defaultTheme;
