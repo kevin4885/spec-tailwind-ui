@@ -1,6 +1,6 @@
 import { COLOR, COLOR_TYPE } from '../../theme/constants.js';
 
-const Toggle = ({ id, color = 'secondary', onChange, value, label, labelRight, ...rest }) => {
+const Toggle = ({ id, color = 'primary', onChange, value, label, labelRight, ...rest }) => {
     const getColorClasses = () => {
         let focusClass = '';
         switch (color) {
@@ -83,7 +83,7 @@ const Toggle = ({ id, color = 'secondary', onChange, value, label, labelRight, .
     return (
         <div className="flex items-center">
             <label htmlFor={id} className="flex cursor-pointer items-center">
-                {!labelRight && <span className="mr-4">{label}</span>}
+                {!labelRight && label && <span className="mr-4">{label}</span>}
 
                 <div className="inline-flex relative items-center">
                     <input
@@ -95,10 +95,10 @@ const Toggle = ({ id, color = 'secondary', onChange, value, label, labelRight, .
                         {...rest}
                     />
                     <div
-                        className={`w-11 h-6 bg-gray-300 rounded-full peer peer-focus:ring-4 peer-focus:ring-opacity-50  dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-400 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 ${getColorClasses()}`}
+                        className={`w-10 h-6 bg-gray-300 rounded-full peer peer-focus:ring-4 dark:peer-focus:ring-opacity-50 peer-focus:ring-opacity-50  dark:bg-gray-700 peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-1 after:left-[4px]  after:bg-white after:rounded-full after:h-4 after:w-4 after:duration-300 after:transition-all dark:border-gray-600 ${getColorClasses()}`}
                     ></div>
                 </div>
-                {labelRight && <span className="ml-4">{label}</span>}
+                {labelRight && label && <span className="ml-4">{label}</span>}
             </label>
         </div>
     );
