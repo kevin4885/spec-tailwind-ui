@@ -34,8 +34,8 @@ const BaseModal = ({
         <div
             className={`fixed inset-0 lg:p-8 backdrop-blur-sm  bg-opacity-50 bg-gray-500 flex flex-col items-center justify-center  ${zIndex} ${isOpen ? 'opacity-100 pointer-events-auto ' : ' opacity-0 pointer-events-none'}`}>
             <div
-                className={`${wClass} ${hClass} flex flex-col h-full w-full  dark:shadow-none bg-white dark:bg-gray-800  shadow-gray-950 dark:lg:shadow-none lg:shadow-2xl lg:rounded-lg text-gray-800 dark:text-gray-400 lg:p-5`}>
-                <div className="flex flex-col h-full">
+                className={`${wClass} ${hClass} flex flex-col h-full w-full  dark:shadow-none bg-white dark:bg-gray-800  shadow-gray-950 dark:lg:shadow-none lg:shadow-2xl lg:rounded-lg text-gray-800 dark:text-gray-400 lg:p-5 overflow-hidden`}>
+                <div className="flex flex-col h-full overflow-hidden">
                     <>
                         {title && (
                             <div
