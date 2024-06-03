@@ -20,13 +20,10 @@ const Button = forwardRef(function({
     const getColorClasses = () => {
         let focusClass = ""
         switch (color) {
+            case "black": focusClass = `focus:ring-black ${link || outline ? "text-black" : "text-white"} bg-black border-black`; break;
+            case "white": focusClass = `focus:ring-white ${link || outline ? "text-white" : "text-gray-600"} bg-white border-white`; break;
+            case "gray": focusClass = `focus:ring-gray-500 ${link || outline ? "dark:text-gray-300 text-gray-500" : "text-white"} bg-gray-500 border-gray-500`; break;
             case COLOR.BLUE: focusClass = `focus:ring-blue-500 ${link || outline ? "text-blue-500" : "text-white"} bg-blue-500 border-blue-500`; break;
-            case COLOR.COFFEE: focusClass = `focus:ring-coffee-500 ${link || outline ? "text-coffee-500" : "text-white"} bg-coffee-500 border-coffee-500`; break;
-            case COLOR.NEUTRAL: focusClass = `focus:ring-neutral-500 ${link || outline ? "text-neutral-500" : "text-white"} bg-neutral-500 border-neutral-500`; break;
-            case COLOR.STONE: focusClass = `focus:ring-stone-500 ${link || outline ? "text-stone-500" : "text-white"} bg-stone-500 border-stone-500`; break;
-            case COLOR.ZINC: focusClass = `focus:ring-zinc-500 ${link || outline ? "text-zinc-500" : "text-white"} bg-zinc-500 border-zinc-500`; break;
-            case COLOR.SLATE: focusClass = `focus:ring-slate-500 ${link || outline ? "text-slate-500" : "text-white"} bg-slate-500 border-slate-500`; break;
-            case COLOR.METAL: focusClass = `focus:ring-metal-500 ${link || outline ? "text-metal-500" : "text-white"} bg-metal-500 border-metal-500`; break;
             case COLOR.RED: focusClass = `focus:ring-red-500 ${link || outline ? "text-red-500" : "text-white"} bg-red-500 border-red-500`; break;
             case COLOR.ORANGE: focusClass = `focus:ring-orange-500 ${link || outline ? "text-orange-500" : "text-white"} bg-orange-500 border-orange-500`; break;
             case COLOR.AMBER: focusClass = `focus:ring-amber-500 ${link || outline ? "text-amber-500" : "text-white"} bg-amber-500 border-amber-500`; break;

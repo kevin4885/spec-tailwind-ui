@@ -39,7 +39,8 @@ export const MenuComponent = React.forwardRef(({ children, renderItem, label, ..
         alignmentAxis: isNested ? -4 : 0,
       }),
       flip(),
-      shift(),
+      shift({padding: 25,}),
+
     ],
     whileElementsMounted: autoUpdate,
   });
@@ -102,63 +103,63 @@ export const MenuComponent = React.forwardRef(({ children, renderItem, label, ..
   }, [tree, isOpen, nodeId, parentId]);
 
 
-    return (
-        <FloatingNode id={nodeId}>
-            <Button
-                type="button"
-                noStyle={isNested}
-                ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
-                tabIndex={!isNested ? undefined : parent.activeIndex === item.index ? 0 : -1}
-                role={isNested ? 'menuitem' : undefined}
-                data-open={isOpen ? '' : undefined}
-                data-nested={isNested ? '' : undefined}
-                data-focus-inside={hasFocusInside ? '' : undefined}
-                className={isNested ? className : ''}
-                {...(isNested ? {} : props)}
-                {...getReferenceProps(
-                    parent.getItemProps({
-                        ...props,
-                        onFocus(event) {
-                            props.onFocus?.(event);
-                            setHasFocusInside(false);
-                            parent.setHasFocusInside(true);
-                        },
-                    }),
-                )}>
-                <div className="flex  items-center w-full">
-                    {renderItem || label}
-                    {isNested && !renderItem && (
-                        <div aria-hidden className="flex grow justify-end pl-3 items-center">
-                            <Icon icon="arrow_right" size={20} />
-                        </div>
-                    )}
+  return (
+      <FloatingNode id={nodeId}>
+        <Button
+            type="button"
+            noStyle={isNested}
+            ref={useMergeRefs([refs.setReference, item.ref, forwardedRef])}
+            tabIndex={!isNested ? undefined : parent.activeIndex === item.index ? 0 : -1}
+            role={isNested ? 'menuitem' : undefined}
+            data-open={isOpen ? '' : undefined}
+            data-nested={isNested ? '' : undefined}
+            data-focus-inside={hasFocusInside ? '' : undefined}
+            className={isNested ? className : ''}
+            {...(isNested ? {} : props)}
+            {...getReferenceProps(
+                parent.getItemProps({
+                  ...props,
+                  onFocus(event) {
+                    props.onFocus?.(event);
+                    setHasFocusInside(false);
+                    parent.setHasFocusInside(true);
+                  },
+                }),
+            )}>
+          <div className="flex  items-center w-full">
+            {renderItem || label}
+            {isNested && !renderItem && (
+                <div aria-hidden className="flex grow justify-end pl-3 items-center">
+                  <Icon icon="arrow_right" size={20} />
                 </div>
-            </Button>
-            <MenuContext.Provider
-                value={{
-                    activeIndex,
-                    setActiveIndex,
-                    getItemProps,
-                    setHasFocusInside,
-                    isOpen,
-                }}>
-                <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
-                    {isOpen && (
-                        <FloatingPortal>
-                            <FloatingFocusManager context={context} modal={false} initialFocus={isNested ? -1 : 0}
-                                                  returnFocus={!isNested}>
-                                <div ref={refs.setFloating}
-                                     className="z-10 py-4 outline-none border-gray-500/10 dark:border-gray-500/20 border backdrop-blur bg-white/80 dark:bg-gray-950/70 dark:shadow-none shadow-2xl rounded-lg text-gray-500 dark:text-gray-400"
-                                     style={floatingStyles} {...getFloatingProps()}>
-                                    {children}
-                                </div>
-                            </FloatingFocusManager>
-                        </FloatingPortal>
-                    )}
-                </FloatingList>
-            </MenuContext.Provider>
-        </FloatingNode>
-    );
+            )}
+          </div>
+        </Button>
+        <MenuContext.Provider
+            value={{
+              activeIndex,
+              setActiveIndex,
+              getItemProps,
+              setHasFocusInside,
+              isOpen,
+            }}>
+          <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
+            {isOpen && (
+                <FloatingPortal>
+                  <FloatingFocusManager context={context} modal={false} initialFocus={isNested ? -1 : 0}
+                                        returnFocus={!isNested}>
+                    <div ref={refs.setFloating}
+                         className="z-10 py-2 outline-none border-gray-500/10 dark:border-gray-500/20 border backdrop-blur bg-white/80 dark:bg-gray-950/70 dark:shadow-none shadow-2xl rounded-lg text-gray-500 dark:text-gray-400"
+                         style={floatingStyles} {...getFloatingProps()}>
+                      {children}
+                    </div>
+                  </FloatingFocusManager>
+                </FloatingPortal>
+            )}
+          </FloatingList>
+        </MenuContext.Provider>
+      </FloatingNode>
+  );
 });
 
 export const MenuItem = React.forwardRef(({ label, icon, iconColor ="primary", disabled, ...props }, forwardedRef) => {
@@ -168,31 +169,31 @@ export const MenuItem = React.forwardRef(({ label, icon, iconColor ="primary", d
   const isActive = item.index === menu.activeIndex;
 
   return (
-    <button
-      {...props}
-      ref={useMergeRefs([item.ref, forwardedRef])}
-      type="button"
-      role="menuitem"
-      className={className}
-      tabIndex={isActive ? 0 : -1}
-      disabled={disabled}
-      {...menu.getItemProps({
-        onClick(event) {
-          props.onClick?.(event);
-          tree?.events.emit("click");
-        },
-        onFocus(event) {
-          props.onFocus?.(event);
-          menu.setHasFocusInside(true);
-        },
-      })}>
-      {icon && (
-        <div className={`text-${iconColor}-500 flex-none mr-4`}>
-          <Icon icon={icon} size={20} />
-        </div>
-      )}
-      {label}
-    </button>
+      <button
+          {...props}
+          ref={useMergeRefs([item.ref, forwardedRef])}
+          type="button"
+          role="menuitem"
+          className={className}
+          tabIndex={isActive ? 0 : -1}
+          disabled={disabled}
+          {...menu.getItemProps({
+            onClick(event) {
+              props.onClick?.(event);
+              tree?.events.emit("click");
+            },
+            onFocus(event) {
+              props.onFocus?.(event);
+              menu.setHasFocusInside(true);
+            },
+          })}>
+        {icon && (
+            <div className={`text-${iconColor}-500 flex-none mr-4`}>
+              <Icon icon={icon} size={20} />
+            </div>
+        )}
+        {label}
+      </button>
   );
 });
 
@@ -201,9 +202,9 @@ export const Menu = React.forwardRef((props, ref) => {
 
   if (parentId === null) {
     return (
-      <FloatingTree>
-        <MenuComponent {...props} ref={ref} />
-      </FloatingTree>
+        <FloatingTree>
+          <MenuComponent {...props} ref={ref} />
+        </FloatingTree>
     );
   }
 
