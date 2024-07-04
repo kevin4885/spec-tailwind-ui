@@ -1,0 +1,78 @@
+.CenterSelect {
+  @apply bg-white dark:bg-gray-800 shadow-lg rounded-lg box-border overflow-auto overscroll-contain py-1 px-4 flex items-center;
+  scrollbar-width: none;
+  outline: 0;
+  user-select: none;
+}
+
+.CenterSelect-button {
+  @apply bg-white dark:bg-gray-800 px-3 py-3 rounded;
+
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.CenterSelect-button:hover {
+  @apply bg-primary-500 dark:bg-primary-500;
+  border-color: transparent;
+}
+
+.CenterSelect-button:focus-visible {
+  @apply border-primary-500;
+}
+
+.CenterSelect::-webkit-scrollbar {
+  display: none;
+}
+
+.CenterSelect button {
+  @apply w-full p-2 rounded scroll-m-12 text-left focus:outline-none;
+  box-sizing: inherit;
+  user-select: none;
+  line-height: 1;
+}
+
+.CenterSelect-ScrollArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  cursor: default;
+  font-size: 12px;
+  line-height: 1;
+  height: 25px;
+  user-select: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+.CenterSelect-ScrollArrow::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.CenterSelect-ScrollArrow[data-dir="up"]::before {
+  @apply bg-gradient-to-b dark:from-gray-950 from-white to-transparent rounded-t-lg top-0;
+}
+
+.CenterSelect-ScrollArrow[data-dir="down"]::before {
+  @apply bg-gradient-to-t dark:from-gray-950 from-white to-transparent rounded-b-lg;
+  top: -10px;
+}
+
+.CenterSelect-ScrollArrow[data-dir="up"] {
+  top: 0;
+}
+
+.CenterSelect-ScrollArrow[data-dir="down"] {
+  bottom: 0;
+}

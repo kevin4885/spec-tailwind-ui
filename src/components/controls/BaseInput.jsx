@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ToolTip, TooltipContent, TooltipTrigger } from '../ToolTip.jsx';
 import Icon from '../Icon/Icon.jsx';
+import { FormContext } from '../Form.jsx';
+
+let lastId = 0;
 
 const BaseInput = ({
   className,
@@ -16,8 +19,8 @@ const BaseInput = ({
   children,
   ...rest
 }) => {
-  const inputId = id;
-  //const { setErrors } = useContext(FormContext);
+  const inputId = id || `spec-${++lastId}`;
+  const { setErrors } = useContext(FormContext);
   const [isEmpty, setIsEmpty] = useState(false);
 
   const handleChange = (e) => {
@@ -25,13 +28,13 @@ const BaseInput = ({
     onChange && onChange(e.target);
   };
 
-  // useEffect(() => {
-  //   if (id && messages) {
-  //     let cnt = !value && rest.required ? 1 : 0;
-  //     messages.forEach((item) => (!item.type || item.type === 'danger') && cnt++);
-  //     setErrors(id, cnt);
-  //   }
-  // }, [messages, id, setErrors, value, rest.required]);
+  useEffect(() => {
+    if (id && messages) {
+      let cnt = !value && rest.required ? 1 : 0;
+      messages.forEach((item) => (!item.type || item.type === 'danger') && cnt++);
+      setErrors(id, cnt);
+    }
+  }, [messages, id, setErrors, value, rest.required]);
 
   if (messages && !danger && !warn && !success) {
     if (isEmpty && rest.required) danger = true;
@@ -87,7 +90,7 @@ const BaseInput = ({
                 <ToolTip>
                   <TooltipTrigger>
                     <Icon
-                      className="poop text-gray-500 dark:text-gray-400 dark:hover:text-primary-500 hover:text-primary-500"
+                      className="text-gray-500 dark:text-gray-400 dark:hover:text-primary-500 hover:text-primary-500"
                       size={16}
                       icon="info_outline"
                     />

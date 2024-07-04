@@ -51,7 +51,7 @@ const Button = forwardRef(function({
         return focusClass;
     }
     const getClassName = () => {
-        let baseClasses = `${className} inline inline-flex h-full items-center gap-2 justify-center py-1 px-3 
+        let baseClasses = `${className} inline inline-flex items-center gap-2 justify-center py-1 px-3 
         rounded text-center focus:outline-none focus:ring-4 focus:ring-opacity-50 border 
         disabled:text-gray-400 disabled:bg-gray-100
         dark:disabled:text-gray-400 dark:disabled:border-gray-600 dark:disabled:bg-gray-600
