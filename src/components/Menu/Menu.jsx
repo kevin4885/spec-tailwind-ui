@@ -149,7 +149,7 @@ export const MenuComponent = React.forwardRef(({ children, renderItem, label, ..
                   <FloatingFocusManager context={context} modal={false} initialFocus={isNested ? -1 : 0}
                                         returnFocus={!isNested}>
                     <div ref={refs.setFloating}
-                         className="z-10 py-2 outline-none border-gray-500/10 dark:border-gray-500/20 border backdrop-blur bg-white/80 dark:bg-gray-950/70 dark:shadow-none shadow-2xl rounded-lg text-gray-500 dark:text-gray-400"
+                         className="z-10 max-h-96 overflow-auto py-2 outline-none border-gray-500/10 dark:border-gray-500/20 border backdrop-blur bg-white/80 dark:bg-gray-950/70 dark:shadow-none shadow-2xl rounded-lg text-gray-500 dark:text-gray-400"
                          style={floatingStyles} {...getFloatingProps()}>
                       {children}
                     </div>

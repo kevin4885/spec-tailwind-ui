@@ -15,7 +15,7 @@ export const COLOR = {
     STONE: 'stone',
     ZINC: 'zinc',
     SLATE: 'slate',
-    METAL: 'moss',
+    MOSS: 'moss',
     RED: 'red',
     ORANGE: 'orange',
     AMBER: 'amber',
