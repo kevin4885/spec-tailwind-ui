@@ -1,9 +1,9 @@
 import React from 'react';
-import Tabs, { Tab } from './Tabs';
+import { Tabs, Tab } from './Tabs';
 import Select from '../controls/Select';
 import { useMediaQuery } from 'react-responsive';
 
-const TabContainer = ({ children, selected, onChange, scrollOnMobile = true, autoScroll = true }) => {
+export const TabContainer = ({ children, selected, onChange, scrollOnMobile = true, autoScroll = true }) => {
   const isLg = useMediaQuery({
     query: '(min-width: 1024px)',
   });
@@ -56,6 +56,5 @@ export const TabPanel = ({ title, children, containerClass = 'py-4 lg:px-4', ...
   );
 };
 
-export default TabContainer;
 
 //<Tabs selected="props">{tabs && tabs.map((t) => <Tab key={t.name}>t.name</Tab>)}</Tabs>

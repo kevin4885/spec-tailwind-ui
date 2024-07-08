@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tabs = ({ children, onChange, selected }) => {
+export const Tabs = ({ children, onChange, selected }) => {
   const handleChange = (value) => {
     onChange(value);
   };
@@ -34,5 +34,3 @@ export const Tab = ({ children, value, selected, onClick }) => {
     </div>
   );
 };
-
-export default Tabs;

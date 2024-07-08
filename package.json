@@ -1,7 +1,7 @@
 {
   "name": "spec-tailwind-ui",
   "description": "React UI components based on TailwindCss (opinionated)",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "keywords": [
     "tailwindcss",
     "react"
