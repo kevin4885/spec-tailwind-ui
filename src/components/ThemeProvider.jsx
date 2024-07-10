@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 import { setPageTheme } from '../theme/theme.js';
 
 
-const ThemeProvider = ({theme, children}) => {
+const ThemeProvider = ({ theme, colors, children }) => {
     const [alert] = useAtom(alertModalAtom);
     const [confirm] = useAtom(confirmModalAtom);
 
     useEffect(() => {
-        setPageTheme(theme)
-    }, [theme]);
+        setPageTheme(theme, colors);
+    }, [theme, colors]);
     return (
         <>
             {children}

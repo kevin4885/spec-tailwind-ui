@@ -1,7 +1,5 @@
-import colors from './colors.js';
 
 export const tailwindColors = {
-    ...colors,
     inherit: 'inherit',
     current: 'currentColor',
     transparent: 'transparent',

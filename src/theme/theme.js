@@ -11,9 +11,9 @@ const toHSLObject = hslStr => {
 
 const STORAGE_KEY = "TAILWIND_UI_THEME"
 
-export const setThemeType = (type, color) => {
-  if (!colors[color]) return;
-  for (const [k, v] of Object.entries(colors[color])) {
+export const setThemeType = (type, color, clrs) => {
+  if (!clrs[color]) return;
+  for (const [k, v] of Object.entries(clrs[color])) {
     const hsl = toHSLObject(v);
     document.documentElement.style.setProperty(`--color-${type}-${k}`, `${hsl.h}deg ${hsl.s}% ${hsl.l}%`);
     document.documentElement.style.setProperty(`--color-${type}text-${k}`, isHslContrastBlack(hsl) ? "0deg 0% 0%" : "0deg 100% 100%");
@@ -47,14 +47,15 @@ function setPageColorVars(clrs) {
 }
 
 export function setPageTheme(theme, customColors) {
-  setPageColorVars(customColors || colors);
+  const clrs = customColors || colors;
+  setPageColorVars(clrs);
   theme = getTheme(theme);
-  setThemeType(COLOR_TYPE.PRIMARY, theme.primary);
-  setThemeType(COLOR_TYPE.SECONDARY, theme.secondary);
-  setThemeType(COLOR_TYPE.TERTIARY, theme.tertiary);
-  setThemeType(COLOR_TYPE.DANGER, theme.danger);
-  setThemeType(COLOR_TYPE.WARN, theme.warn);
-  setThemeType(COLOR_TYPE.SUCCESS, theme.success);
-  setThemeType(COLOR_TYPE.BG, theme.bg);
+  setThemeType(COLOR_TYPE.PRIMARY, theme.primary, clrs);
+  setThemeType(COLOR_TYPE.SECONDARY, theme.secondary, clrs);
+  setThemeType(COLOR_TYPE.TERTIARY, theme.tertiary, clrs);
+  setThemeType(COLOR_TYPE.DANGER, theme.danger, clrs);
+  setThemeType(COLOR_TYPE.WARN, theme.warn, clrs);
+  setThemeType(COLOR_TYPE.SUCCESS, theme.success, clrs);
+  setThemeType(COLOR_TYPE.BG, theme.bg, clrs);
 }
 
