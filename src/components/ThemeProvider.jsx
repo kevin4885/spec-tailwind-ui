@@ -49,7 +49,6 @@ const ThemeProvider = ({ lightTheme, darkTheme, darkColors, lightColors, childre
 
 
     useEffect(() => {
-        console.log('Dark mode: ' + isDarkMode);
         setPageTheme(isDarkMode ? darkTheme : lightTheme, isDarkMode ? darkColors : lightColors);
     }, [lightTheme, darkTheme, isDarkMode, darkColors, lightColors]);
     return (
