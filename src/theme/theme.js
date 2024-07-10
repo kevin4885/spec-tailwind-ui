@@ -37,7 +37,17 @@ export function setThemeInStorage(theme) {
 
 export const getTheme = theme => theme || getThemeFromStorage() || defaultTheme;
 
-export function setPageTheme(theme) {
+function setPageColorVars(clrs) {
+  for (const [c, o] of Object.entries(clrs)) {
+    for (const [k, v] of Object.entries(o)) {
+      const hsl = toHSLObject(v);
+      document.documentElement.style.setProperty(`--color-${c}-${k}`, `${hsl.h}deg ${hsl.s}% ${hsl.l}%`);
+    }
+  }
+}
+
+export function setPageTheme(theme, customColors) {
+  setPageColorVars(customColors || colors);
   theme = getTheme(theme);
   setThemeType(COLOR_TYPE.PRIMARY, theme.primary);
   setThemeType(COLOR_TYPE.SECONDARY, theme.secondary);
