@@ -1,8 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { produce } from 'immer';
 
-const FormContext = createContext({}, () => {
-});
+const FormContext = createContext({});
 const Form = ({ children, onErrorsChange }) => {
     const [formErrors, setFormErrors] = useState({});
     const setErrors = (id, count) => {
