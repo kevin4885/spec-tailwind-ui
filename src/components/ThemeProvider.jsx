@@ -1,18 +1,19 @@
 import AlertModal from './modals/AlertModal.jsx';
 import ConfirmModal from './modals/ConfirmModal.jsx';
-import { useAtom } from 'jotai';
-import { alertModalAtom, closeAlert, confirmModalAtom } from '../stores/themeStore.js';
+import { useAtom, useAtomValue } from 'jotai';
+import { alertModalAtom, closeAlert, confirmModalAtom, darkModeAtom } from '../stores/themeStore.js';
 import { useEffect } from 'react';
 import { setPageTheme } from '../theme/theme.js';
 
 
-const ThemeProvider = ({ theme, colors, children }) => {
+const ThemeProvider = ({ theme, darkColors, lightColors, children }) => {
     const [alert] = useAtom(alertModalAtom);
     const [confirm] = useAtom(confirmModalAtom);
+    const darkMode = useAtomValue(darkModeAtom);
 
     useEffect(() => {
-        setPageTheme(theme, colors);
-    }, [theme, colors]);
+        setPageTheme(theme, darkMode ? darkColors : lightColors);
+    }, [theme, darkMode, darkColors, lightColors]);
     return (
         <>
             {children}
