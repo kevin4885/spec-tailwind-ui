@@ -6,14 +6,15 @@ import { useEffect } from 'react';
 import { setPageTheme } from '../theme/theme.js';
 
 
-const ThemeProvider = ({ theme, darkColors, lightColors, children }) => {
+const ThemeProvider = ({ lightTheme, darkTheme, darkColors, lightColors, children }) => {
     const [alert] = useAtom(alertModalAtom);
     const [confirm] = useAtom(confirmModalAtom);
     const darkMode = useAtomValue(darkModeAtom);
 
     useEffect(() => {
-        setPageTheme(theme, darkMode ? darkColors : lightColors);
-    }, [theme, darkMode, darkColors, lightColors]);
+        console.log('Dark mode: ' + darkMode);
+        setPageTheme(darkMode ? darkTheme : lightTheme, darkMode ? darkColors : lightColors);
+    }, [lightTheme, darkTheme, darkMode, darkColors, lightColors]);
     return (
         <>
             {children}
