@@ -35,6 +35,7 @@ export { default as AlertModal } from './modals/AlertModal.jsx';
 export { default as BaseModal } from './modals/BaseModal.jsx';
 export { default as ConfirmModal } from './modals/ConfirmModal.jsx';
 export { default as DeleteModal } from './modals/DeleteModal.jsx';
+export { default as Drawer } from './Drawer.jsx';
 
 
 
