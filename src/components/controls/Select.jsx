@@ -15,9 +15,10 @@ const Select = forwardRef(function (
       label={label}
       description={description}
       messages={messages}
+      id={id}
       {...rest}
     >
-      <select {...rest} id={id} ref={ref}>
+      <select {...rest} ref={ref}>
         {children}
       </select>
     </BaseInput>
