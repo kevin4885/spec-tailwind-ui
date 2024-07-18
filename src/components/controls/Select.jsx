@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import BaseInput from './BaseInput';
 
 const Select = forwardRef(function (
-  { className, name, value, onChange, label, description, messages, children, ...rest },
+  { id, className, name, value, onChange, label, description, messages, children, ...rest },
   ref,
 ) {
   return (
@@ -17,7 +17,7 @@ const Select = forwardRef(function (
       messages={messages}
       {...rest}
     >
-      <select {...rest} ref={ref}>
+      <select {...rest} id={id} ref={ref}>
         {children}
       </select>
     </BaseInput>
