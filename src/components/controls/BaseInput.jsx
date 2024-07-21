@@ -32,7 +32,7 @@ const BaseInput = ({
     if (id && messages) {
       let cnt = !value && rest.required ? 1 : 0;
       messages.forEach((item) => (!item.type || item.type === 'danger') && cnt++);
-      setErrors(id, cnt);
+      setErrors && setErrors(id, cnt);
     }
   }, [messages, id, setErrors, value, rest.required]);
 
