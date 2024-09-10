@@ -2,7 +2,7 @@ import {forwardRef, useCallback, useEffect, useRef} from 'react';
 import BaseInput from './BaseInput';
 
 const TextArea = forwardRef(function (
-    {className, autoGrow, onChange, value = '', label, description, messages, ...rest},
+    {className, maxHeight = 300, autoGrow, onChange, value = '', label, description, messages, ...rest},
     ref,
 ) {
     const innerRef = useRef(null);
@@ -18,10 +18,10 @@ const TextArea = forwardRef(function (
     const adjustHeight = useCallback(() => {
         if (autoGrow && innerRef?.current) {
             innerRef.current.style.height = '0px';
-            const scrollHeight = innerRef.current.scrollHeight + 10;
-            innerRef.current.style.height = scrollHeight + 'px';
+            const scrollHeight = innerRef.current.scrollHeight + 1;
+            innerRef.current.style.height = Math.min(scrollHeight, maxHeight) + 'px';
         }
-    }, [autoGrow]);
+    }, [autoGrow, maxHeight]);
 
     useEffect(() => {
         adjustHeight();

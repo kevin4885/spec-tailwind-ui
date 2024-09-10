@@ -29,12 +29,12 @@ const NumberInput = forwardRef(function (
         e.value = parseFloat(e.value);
       }
 
-      if (min !== undefined && Number(e.value) <= Number(min))
+      if (min !== undefined && Number(e.value) < Number(min))
         msgs.push({
           message: minMessage || 'Number needs to be above ' + min,
           type: 'danger',
         });
-      if (max !== undefined && Number(e.value) >= Number(max))
+      if (max !== undefined && Number(e.value) > Number(max))
         msgs.push({
           message: maxMessage || 'Number needs to be below ' + max,
           type: 'danger',
