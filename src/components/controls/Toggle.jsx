@@ -74,7 +74,7 @@ const Toggle = ({ id, color = 'primary', onChange, value, label, labelRight, ...
                 focusClass = `peer-checked:bg-success-500 peer-focus:ring-success-500 dark:peer-focus:ring-success-500 peer-checked:after:bg-successtext-500`;
                 break;
             default:
-                console.warn(`Unexpected color value: ${color}`);
+                focusClass = "";
                 break;
         }
         return focusClass;

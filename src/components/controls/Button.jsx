@@ -52,7 +52,7 @@ const Button = forwardRef(function({
             case COLOR_TYPE.DANGER: focusClass = `focus:ring-danger-500 ${link || outline ? "text-danger-500" : "text-dangertext-500"} bg-danger-500 border-danger-500`; break;
             case COLOR_TYPE.WARN: focusClass =`focus:ring-warn-500 ${link || outline ? "text-warn-500" : "text-warntext-500"} bg-warn-500 border-warn-500`; break;
             case COLOR_TYPE.SUCCESS: focusClass = `focus:ring-success-500 ${link || outline ? "text-success-500" : "text-successtext-500"} bg-success-500 border-success-500`; break;
-            default: console.warn(`Unexpected color value: ${color}`); break;
+            default: focusClass=""; break;
         }
         return focusClass;
     }
