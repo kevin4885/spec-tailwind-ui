@@ -52,7 +52,7 @@ const ThemeProvider = ({ lightTheme, darkTheme, darkColors, lightColors, childre
         setPageTheme(isDarkMode ? darkTheme : lightTheme, isDarkMode ? darkColors : lightColors);
     }, [lightTheme, darkTheme, isDarkMode, darkColors, lightColors]);
     return (
-        <ThemeContext.Provider value={{toggleDarkMode, lightTheme, darkTheme, lightColors, darkColors}}>
+        <ThemeContext.Provider value={{toggleDarkMode, isDarkMode, lightTheme, darkTheme, lightColors, darkColors}}>
             {children}
             {alert.isOpen && (
                 <AlertModal isOpen={alert.isOpen} icon={alert.icon} iconColor={alert.iconColor} title={alert.title}
