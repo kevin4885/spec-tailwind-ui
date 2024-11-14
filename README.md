@@ -1,3 +1,10 @@
+## Deploy
+
+- Change package version number
+- npm run build
+- npm login
+- npm publish
+
 ## Tailwind.config.js
 
 ```javascript
